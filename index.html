@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Raz-e Penhan | Hidden Mystery</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="app">
+    <!-- Header -->
+    <header class="header">
+      <div class="logo">
+        <span class="logo-icon">🔮</span>
+        <div>
+          <h1 id="title">Raz-e Penhan</h1>
+          <p id="subtitle" class="subtitle">Hidden Mystery</p>
+        </div>
+      </div>
+      <div class="lang-switch">
+        <button id="lang-en" class="lang-btn active" onclick="setLang('en')">EN</button>
+        <button id="lang-fa" class="lang-btn" onclick="setLang('fa')">فا</button>
+      </div>
+    </header>
+
+    <!-- Main Screen: Puzzle Select -->
+    <main id="select-screen" class="screen active">
+      <p id="intro-text" class="intro">Solve mysterious situations by asking yes/no questions. Think outside the box!</p>
+      <div id="puzzle-list" class="puzzle-list"></div>
+    </main>
+
+    <!-- Game Screen -->
+    <main id="game-screen" class="screen">
+      <button class="back-btn" onclick="showSelect()">← <span id="back-text">Back</span></button>
+      
+      <div class="puzzle-card">
+        <div class="puzzle-number" id="puzzle-num"></div>
+        <h2 id="puzzle-title"></h2>
+        <p id="puzzle-situation" class="situation"></p>
+      </div>
+
+      <div class="chat-container" id="chat">
+        <!-- Messages will appear here -->
+      </div>
+
+      <div class="input-area">
+        <input type="text" id="question-input" placeholder="Ask a yes/no question..." autocomplete="off">
+        <button id="ask-btn" onclick="askQuestion()">Ask</button>
+      </div>
+
+      <div class="actions">
+        <button class="secondary-btn" onclick="revealSolution()" id="reveal-btn">Reveal Solution</button>
+        <button class="secondary-btn" onclick="checkGuess()" id="guess-btn">I know the answer!</button>
+      </div>
+    </main>
+
+    <!-- Solution Modal -->
+    <div id="modal" class="modal hidden">
+      <div class="modal-content">
+        <h3 id="modal-title">Solution</h3>
+        <p id="modal-text"></p>
+        <button onclick="closeModal()" id="modal-close">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
